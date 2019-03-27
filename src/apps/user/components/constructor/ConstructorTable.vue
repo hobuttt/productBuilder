@@ -8,9 +8,18 @@
     >
       <v-progress-linear slot="progress" color="blue" indeterminate></v-progress-linear>
       <template slot="items" slot-scope="props">
-        <td class="text-xs-center">{{props.item.type}}</td>
+        <td class="text-xs-center">
+          <v-select
+            :items="props.item.type"
+            label="Слой"
+            style="width: 80%"
+          ></v-select>
+
+        </td>
         <td class="text-xs-center">{{props.item.height}}</td>
-        <td class="text-xs-center">{{props.item.actions}}</td>
+        <td class="text-xs-center">
+          {{props.item.actions}}
+        </td>
       </template>
     </v-data-table>
 </template>

@@ -1,12 +1,12 @@
 <template>
-  <v-container grid-list-lg>
+  <v-container grid-list-lg fluid>
     <v-card>
       <v-card-title class="headline font-weight-regular secondary white--text">
         Конструктор
         <v-spacer></v-spacer>
       </v-card-title>
       <v-card-text>
-        <v-layout row wrap align-center>
+        <v-layout row wrap>
           <v-flex sm7>
             <constructor></constructor>
           </v-flex>

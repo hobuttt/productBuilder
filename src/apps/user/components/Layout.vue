@@ -89,7 +89,7 @@ export default {
       right: true,
       rightDrawer: false,
       links: [
-        { title: 'Главная', icon: 'people', url: '/title' },
+        { title: 'Главная', icon: 'home', url: '/title' },
         { title: 'Конструктор', icon: 'dashboard', url: '/cake-builder' }
       ]
     }

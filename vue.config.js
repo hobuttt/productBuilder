@@ -31,6 +31,17 @@ module.exports = {
     }
     config.resolve.alias.set('@admin', path.resolve('src/apps/admin'));
     config.resolve.alias.set('@user', path.resolve('src/apps/user'));
-    config.resolve.alias.set('@common', path.resolve('src/common'))
+    config.resolve.alias.set('@common', path.resolve('src/common'));
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .loader('vue-loader')
+      .tap(options => Object.assign(options, {
+        transformAssetUrls: {
+          'v-img': ['src', 'lazy-src'],
+          'v-card': 'src',
+          'v-card-media': 'src'
+        }
+      }))
   }
 };
