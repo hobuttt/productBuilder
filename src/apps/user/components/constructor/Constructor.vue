@@ -10,7 +10,7 @@
           v-for="layer in layers"
           :key="layer.i"
         >
-          <v-card-media :src="layer.src" :style="{height: layer.height * 10 + 'px'}" class="mt-0 mb-0"></v-card-media>
+          <v-img :src="layer.src" :style="{height: layer.height * 10 + 'px'}" class="mt-0 mb-0"></v-img>
         </div>
       </v-flex>
     </v-layout>

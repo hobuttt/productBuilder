@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   outputDir: 'dist/' + process.env.IS_USER,
@@ -7,9 +7,9 @@ module.exports = {
       config
         .plugin('html')
         .tap(args => {
-          args[0].template = './src/apps/admin/index.html';
+          args[0].template = './src/apps/admin/index.html'
           return args
-        });
+        })
       config
         .entry('app')
         .clear()
@@ -20,7 +20,7 @@ module.exports = {
       config
         .plugin('html')
         .tap(args => {
-          args[0].template = './src/apps/user/index.html';
+          args[0].template = './src/apps/user/index.html'
           return args
         });
       config
@@ -29,9 +29,10 @@ module.exports = {
         .add('./src/apps/user/main.js')
         .end()
     }
-    config.resolve.alias.set('@admin', path.resolve('src/apps/admin'));
-    config.resolve.alias.set('@user', path.resolve('src/apps/user'));
-    config.resolve.alias.set('@common', path.resolve('src/common'));
+    config.resolve.alias.set('@', path.resolve('src'))
+    config.resolve.alias.set('@admin', path.resolve('src/apps/admin'))
+    config.resolve.alias.set('@user', path.resolve('src/apps/user'))
+    config.resolve.alias.set('@common', path.resolve('src/common'))
     // config.module
     //   .rule('vue')
     //   .use('vue-loader')
@@ -44,4 +45,4 @@ module.exports = {
     //     }
     //   }))
   }
-};
+}

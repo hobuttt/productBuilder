@@ -14,8 +14,8 @@
             item-text="label"
             return-object
             style="width: 100%"
-            v-model="layerCh"
-            @change="changeLayerType"
+            v-model="props.item"
+            @change="changeLayerType(props.item)"
           ></v-select>
 
         </td>
@@ -85,7 +85,8 @@ export default {
     }
   },
   methods: {
-    changeLayerType () {
+    changeLayerType (layer) {
+      console.log(layer)
     }
   }
 }
