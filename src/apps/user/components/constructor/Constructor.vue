@@ -6,12 +6,12 @@
     </v-btn>
     <v-layout row>
       <v-flex offset-sm1 sm10>
-        <v-list
+        <div
           v-for="layer in layers"
           :key="layer.i"
         >
-          <v-card-media :src="layer.img" style="height: 20px"></v-card-media>
-        </v-list>
+          <v-card-media :src="layer.src" :style="{height: layer.height * 10 + 'px'}" class="mt-0 mb-0"></v-card-media>
+        </div>
       </v-flex>
     </v-layout>
   </div>
@@ -22,25 +22,8 @@ export default {
   name: 'Constructor',
   data () {
     return {
-      layersList: {
-        bisquit: {
-          price1sm: 50,
-          label: 'Бисквит',
-          img: 'https://media.istockphoto.com/photos/sponge-texture-background-picture-id482894144'
-        },
-        curd: {
-          price1sm: 40,
-          label: 'Крем',
-          src: 'https://st2.depositphotos.com/4196725/6839/i/950/depositphotos_68394425-stock-photo-clean-white-stone-texture.jpg'
-        },
-        beze: {
-          price1sm: 30,
-          label: 'Безе',
-          src: 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX27105643.jpg'
-        }
-      },
-      defaultLayerType: 'bisquit',
-      defaultLayerHeight: 2
+      defaultLayerLabel: 'Бисквит',
+      defaultLayerHeight: 4
     }
   },
   computed: {
@@ -51,9 +34,9 @@ export default {
   methods: {
     addLayer () {
       const LAYER = {
-        type: this.defaultLayerType,
+        label: this.defaultLayerLabel,
         height: this.defaultLayerHeight,
-        img: 'https://media.istockphoto.com/photos/sponge-texture-background-picture-id482894144'
+        src: 'https://media.istockphoto.com/photos/sponge-texture-background-picture-id482894144'
       }
       this.$store.commit('addLayer', LAYER)
     }
