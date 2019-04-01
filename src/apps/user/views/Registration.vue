@@ -1,10 +1,12 @@
 <template>
   <v-container>
-    <h2>Log</h2>
-  </v-container></template>
+    <h2>reg</h2>
+  </v-container>
+</template>
 
 <script>
 export default {
+  name: 'Registration'
 }
 </script>
 

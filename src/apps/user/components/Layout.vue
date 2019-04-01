@@ -89,6 +89,8 @@ export default {
       right: true,
       rightDrawer: false,
       links: [
+        { title: 'Логин', icon: 'vpn_key', url: '/login' },
+        { title: 'Регистрация', icon: 'how_to_reg', url: '/registration' },
         { title: 'Главная', icon: 'home', url: '/title' },
         { title: 'Конструктор', icon: 'dashboard', url: '/cake-builder' }
       ]

@@ -1,17 +1,17 @@
 <template>
   <v-app>
     <router-view/>
-    <!--<v-snackbar-->
-    <!--v-model="snackbar.active"-->
-    <!--:bottom="true"-->
-    <!--:auto-height="true"-->
-    <!--:timeout="2000"-->
-    <!--:color="snackbar.type"-->
-    <!--&gt;-->
-    <!--<v-flex class="text-md-center font-weight-black">-->
-    <!--{{ snackbar.text }}-->
-    <!--</v-flex>-->
-    <!--</v-snackbar>-->
+    <v-snackbar
+    v-model="snackbar.active"
+    :bottom="true"
+    :auto-height="true"
+    :timeout="2000"
+    :color="snackbar.type"
+    >
+    <v-flex class="text-md-center font-weight-black">
+    {{ snackbar.text }}
+    </v-flex>
+    </v-snackbar>
     <!--<v-footer :fixed="fixed" app>-->
       <!--<span>&copy; 2019</span>-->
     <!--</v-footer>-->
@@ -35,6 +35,11 @@ export default {
       title: 'Vuetify.js'
     }
   },
-  name: 'App'
+  name: 'App',
+  computed: {
+    snackbar () {
+      return this.$store.getters.getSnackbar
+    }
+  }
 }
 </script>

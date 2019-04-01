@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import CakeBuilder from '@user/views/CakeBuilder.vue'
-import Login from '@user/views/Login.vue'
-import Title from '@user/views/Title.vue'
+import CakeBuilder from '@user/views/CakeBuilder'
+import Login from '@user/views/Login'
+import Title from '@user/views/Title'
+import Registration from '@user/views/Registration'
 
 import Layout from '@user/components/Layout.vue'
 import NotFoundComponent from '@user/components/NotFoundComponent.vue'
@@ -18,6 +19,13 @@ export default new Router({
       path: '/',
       redirect: '/title',
       component: Layout,
+      // beforeEnter (to, from, next) {
+      // if (!TokenManager.getToken()) {
+      //   next('/login')
+      // } else {
+      //   next(true)
+      // }
+      // },
       children: [
         {
           path: 'title',
@@ -35,6 +43,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/registration',
+      name: 'registration',
+      component: Registration
     },
     {
       path: '*',

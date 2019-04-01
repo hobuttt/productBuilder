@@ -2,6 +2,7 @@ const path = require('path')
 
 module.exports = {
   outputDir: 'dist/' + process.env.IS_USER,
+  baseUrl: '',
   chainWebpack: config => {
     if (process.env.IS_USER === 'admin') {
       config
