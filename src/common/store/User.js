@@ -16,7 +16,7 @@ export default {
         const user = await fb.auth().createUserWithEmailAndPassword(email, password)
         commit('setUser', new User(user.uid))
       } catch (error) {
-
+        console.log(error)
       }
     }
   },

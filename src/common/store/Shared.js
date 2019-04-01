@@ -1,4 +1,4 @@
-import HttpClient from '@common/infrastructure/HttpClient'
+// import HttpClient from '@common/infrastructure/HttpClient'
 
 export default {
   state: {
@@ -38,19 +38,19 @@ export default {
     }
   },
   actions: {
-    async checkNewFrontendVersion () {
-      const versionRequest = await new HttpClient().get(`${location.origin}/static/version.json`, {
-        headers: {
-          'Pragma': 'no-cache',
-          'Cache-Control': 'no-cache'
-        }
-      })
-      const actualVersion = versionRequest.data.version
-      const currentVersion = localStorage.getItem('version')
-      if (actualVersion !== currentVersion) {
-        location.reload(true)
-      }
-    }
+    // async checkNewFrontendVersion () {
+    //   const versionRequest = await new HttpClient().get(`${location.origin}/static/version.json`, {
+    //     headers: {
+    //       'Pragma': 'no-cache',
+    //       'Cache-Control': 'no-cache'
+    //     }
+    //   })
+    //   const actualVersion = versionRequest.data.version
+    //   const currentVersion = localStorage.getItem('version')
+    //   if (actualVersion !== currentVersion) {
+    //     location.reload(true)
+    //   }
+    // }
     // async checkNewReleasesInfo ({ commit }) {
     //   const resultReleases = []
     //   try {

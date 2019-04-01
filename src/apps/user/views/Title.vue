@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h2>Title</h2>
+    <h2>Titles</h2>
   </v-container>
 </template>
 

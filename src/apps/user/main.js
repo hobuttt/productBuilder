@@ -18,7 +18,7 @@ Vue.config.productionTip = false
 
 const i18n = new VueI18n({
   locale: 'ru',
-  fallbackLocale: 'en',
+  fallbackLocale: 'ru',
   messages: Language
 })
 new Vue({

@@ -36,18 +36,18 @@ export default new Router({
           path: 'cake-builder',
           name: 'CakeBuilder',
           component: CakeBuilder
+        },
+        {
+          path: '/login',
+          name: 'login',
+          component: Login
+        },
+        {
+          path: '/registration',
+          name: 'registration',
+          component: Registration
         }
       ]
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    },
-    {
-      path: '/registration',
-      name: 'registration',
-      component: Registration
     },
     {
       path: '*',
