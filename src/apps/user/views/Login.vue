@@ -11,7 +11,7 @@
             <v-form
               v-model="valid"
               ref="form"
-              validation
+              lazy-validation
             >
               <v-text-field
                 prepend-icon="person"

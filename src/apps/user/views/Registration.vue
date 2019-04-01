@@ -11,7 +11,7 @@
             <v-form
                     v-model="valid"
                     ref="form"
-                    validation
+                    lazy-validation
             >
               <v-text-field
                       prepend-icon="person"
@@ -48,7 +48,7 @@
                     color="primary"
                     @click="onSubmit"
                     :disabled="!valid"
-            >Login
+            >Register
             </v-btn>
           </v-card-actions>
         </v-card>
