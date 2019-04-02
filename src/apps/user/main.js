@@ -27,7 +27,8 @@ new Vue({
   store,
   i18n,
   components: { App },
-  create () {
+  render: h => h(App),
+  created () {
     fb.initializeApp({
       apiKey: 'AIzaSyCAXAQK-DMBu79wsdGH5il5LhujRe-JTVA',
       authDomain: 'productbuilder-f5f0d.firebaseapp.com',
@@ -36,7 +37,5 @@ new Vue({
       storageBucket: 'productbuilder-f5f0d.appspot.com',
       messagingSenderId: '392426589175'
     })
-  },
-  template: '<App/>',
-  render: h => h(App)
+  }
 }).$mount('#app')

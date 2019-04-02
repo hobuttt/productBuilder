@@ -98,8 +98,8 @@ export default {
   },
   methods: {
     logout () {
-      this.$store.commit('clearToken')
-      this.$router.push({ 'name': 'login' })
+      // this.$store.commit('clearToken')
+      // this.$router.push({ 'name': 'login' })
     }
   }
 }
