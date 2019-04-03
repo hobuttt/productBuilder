@@ -40,6 +40,7 @@ export default {
     snackbar () {
       return this.$store.getters.getSnackbar
     }
+
   }
 }
 </script>

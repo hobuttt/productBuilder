@@ -25,12 +25,12 @@
         </v-list-tile>
       </v-list>
       <v-list>
-        <v-list-tile @click="logout">
+        <v-list-tile @click="logout" v-if="isUserIsLoggIn">
           <v-list-tile-action>
             <v-icon>exit_to_app</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Выход</v-list-tile-title>
+            <v-list-tile-title>{{ $t('layout.logout')}}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -57,17 +57,17 @@
     </v-content>
     <v-navigation-drawer
             temporary
-            :right="right"
+            right="right"
             v-model="rightDrawer"
             fixed
             app
     >
       <v-list>
-        <v-list-tile @click="right = !right">
+        <v-list-tile >
           <v-list-tile-action>
             <v-icon>compare_arrows</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
+          <v-list-tile-title> drawer </v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -86,20 +86,32 @@ export default {
         title: 'Inspire'
       }],
       miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      links: [
-        { title: 'Логин', icon: 'vpn_key', url: '/login' },
-        { title: 'Регистрация', icon: 'how_to_reg', url: '/registration' },
-        { title: 'Главная', icon: 'home', url: '/title' },
-        { title: 'Конструктор', icon: 'dashboard', url: '/cake-builder' }
-      ]
+      rightDrawer: false
+    }
+  },
+  computed: {
+    isUserIsLoggIn () {
+      return this.$store.getters.getUserIsLoggIn
+    },
+    links () {
+      if (this.isUserIsLoggIn) {
+        return [
+          { title: this.$t('layout.home'), icon: 'home', url: '/title' },
+          { title: this.$t('layout.constructor'), icon: 'dashboard', url: '/cake-builder' }
+        ]
+      } else {
+        return [
+          { title: this.$t('layout.login'), icon: 'vpn_key', url: '/login' },
+          { title: this.$t('layout.registration'), icon: 'home', url: '/registration' },
+          { title: this.$t('layout.home'), icon: 'home', url: '/title' }
+        ]
+      }
     }
   },
   methods: {
     logout () {
-      // this.$store.commit('clearToken')
-      // this.$router.push({ 'name': 'login' })
+      this.$store.dispatch('logoutUser')
+      this.$router.push('/')
     }
   }
 }
