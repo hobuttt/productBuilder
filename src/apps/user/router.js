@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@user/store'
 
 import CakeBuilder from '@user/views/CakeBuilder'
 import Login from '@user/views/Login'
@@ -19,12 +20,12 @@ export default new Router({
       path: '/',
       redirect: '/title',
       component: Layout,
-      // beforeEnter (to, from, next) {
-      // if (!TokenManager.getToken()) {
-      //   next('/login')
-      // } else {
-      //   next(true)
-      // }
+      // beforeEnter: (to, from, next) => {
+      //   if (store.getters.user) {
+      //     next(true)
+      //   } else {
+      //     next('/login')
+      //   }
       // },
       children: [
         {
