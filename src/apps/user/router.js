@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '@user/store'
 
+import AuthGuard from '@user/auth-guard'
 import CakeBuilder from '@user/views/CakeBuilder'
 import Login from '@user/views/Login'
 import Title from '@user/views/Title'
@@ -20,13 +20,6 @@ export default new Router({
       path: '/',
       redirect: '/title',
       component: Layout,
-      // beforeEnter: (to, from, next) => {
-      //   if (store.getters.user) {
-      //     next(true)
-      //   } else {
-      //     next('/login')
-      //   }
-      // },
       children: [
         {
           path: 'title',
@@ -36,7 +29,8 @@ export default new Router({
         {
           path: 'cake-builder',
           name: 'CakeBuilder',
-          component: CakeBuilder
+          component: CakeBuilder,
+          beforeEnter: AuthGuard
         },
         {
           path: '/login',
