@@ -1,11 +1,14 @@
 <template>
-  <v-container>
-    <h2>Titles</h2>
-  </v-container>
+  <ul>
+     <li v-for="message in messages" :key="message">
+       {{ message }}
+     </li>
+  </ul>
 </template>
 
 <script>
 export default {
+  props: ['messages']
 }
 </script>
 
