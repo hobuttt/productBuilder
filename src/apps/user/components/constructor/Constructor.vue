@@ -36,8 +36,10 @@ export default {
       const LAYER = {
         label: this.defaultLayerLabel,
         height: this.defaultLayerHeight,
-        src: 'https://media.istockphoto.com/photos/sponge-texture-background-picture-id482894144'
+        src: 'https://media.istockphoto.com/photos/sponge-texture-background-picture-id482894144',
+        id: Math.random()
       }
+      console.log(this.layers)
       this.$store.commit('addLayer', LAYER)
     }
   }

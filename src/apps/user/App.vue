@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <router-view/>
+    <Title :messages="messages"/>
     <v-snackbar
     v-model="snackbar.active"
     :bottom="true"
@@ -12,13 +13,12 @@
     {{ snackbar.text }}
     </v-flex>
     </v-snackbar>
-    <!--<v-footer :fixed="fixed" app>-->
-      <!--<span>&copy; 2019</span>-->
-    <!--</v-footer>-->
   </v-app>
 </template>
 
 <script>
+import Title from './views/Title'
+
 export default {
   data () {
     return {
@@ -32,9 +32,11 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Vuetify.js',
+      messages: ['11', '22']
     }
   },
+  components: { Title },
   name: 'App',
   computed: {
     snackbar () {
