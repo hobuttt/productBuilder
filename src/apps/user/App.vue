@@ -1,7 +1,6 @@
 <template>
-  <v-app>
+  <v-app >
     <router-view/>
-    <Title :messages="messages"/>
     <v-snackbar
     v-model="snackbar.active"
     :bottom="true"
@@ -17,8 +16,6 @@
 </template>
 
 <script>
-import Title from './views/Title'
-
 export default {
   data () {
     return {
@@ -36,13 +33,11 @@ export default {
       messages: ['11', '22']
     }
   },
-  components: { Title },
   name: 'App',
   computed: {
     snackbar () {
       return this.$store.getters.getSnackbar
     }
-
   }
 }
 </script>

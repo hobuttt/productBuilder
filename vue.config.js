@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   outputDir: 'dist/' + process.env.IS_USER,
-  baseUrl: '',
+  publicPath: '',
   chainWebpack: config => {
     if (process.env.IS_USER === 'admin') {
       config
@@ -23,7 +23,7 @@ module.exports = {
         .tap(args => {
           args[0].template = './src/apps/user/index.html'
           return args
-        });
+        })
       config
         .entry('app')
         .clear()

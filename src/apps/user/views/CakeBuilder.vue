@@ -7,10 +7,10 @@
       </v-card-title>
       <v-card-text>
         <v-layout row wrap>
-          <v-flex sm7>
+          <v-flex sm6>
             <constructor></constructor>
           </v-flex>
-          <v-flex sm5>
+          <v-flex sm6>
             <constructor-table></constructor-table>
           </v-flex>
         </v-layout>
