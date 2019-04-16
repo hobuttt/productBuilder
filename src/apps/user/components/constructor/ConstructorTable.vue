@@ -28,7 +28,7 @@
           </v-text-field>
         </td>
         <td class="text-xs-center">
-          {{props.item.actions}}
+          <v-icon color="error" @click="deleteLayer(props.item)">close</v-icon>
         </td>
       </template>
     </v-data-table>
@@ -87,6 +87,9 @@ export default {
   methods: {
     changeLayerType (layer) {
       console.log(layer)
+    },
+    deleteLayer (layer) {
+      this.$store.commit('deleteLayer', layer)
     }
   }
 }

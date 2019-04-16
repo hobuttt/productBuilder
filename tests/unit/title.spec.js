@@ -1,17 +1,22 @@
-import Vue from 'vue'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
+import VueRouter from 'vue-router'
+// import routes from '@/apps/user/router'
 import App from '@/apps/user/App.vue'
+import Vuetify from 'vuetify'
+
+const localVue = createLocalVue()
+localVue.use(VueRouter)
 
 describe('title', () => {
-  let Cmp, vm
-  beforeEach(() => {
-    Cmp = Vue.extend(App)
-    vm = new Cmp({
-      data: {
-        messages: ['Cat']
-      }
-    }).$mount()
-  })
-  it('identic ["Cat"]', () => {
-    expect(vm.messages).toEqual(['Cat'])
+  it('matches snapshot', () => {
+    const msg = 'message'
+    const localVue = createLocalVue()
+    localVue.use(Vuetify)
+
+    const wrapper = shallowMount(App, {
+      localVue: localVue,
+      propsData: { msg }
+    })
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })

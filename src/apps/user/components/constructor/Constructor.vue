@@ -39,7 +39,6 @@ export default {
         src: 'https://media.istockphoto.com/photos/sponge-texture-background-picture-id482894144',
         id: Math.random()
       }
-      console.log(this.layers)
       this.$store.commit('addLayer', LAYER)
     }
   }

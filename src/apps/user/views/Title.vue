@@ -1,14 +1,15 @@
 <template>
-  <ul>
-     <li v-for="message in messages" :key="message">
-       {{ message }}
-     </li>
-  </ul>
+  <h2>{{title}}</h2>
 </template>
 
 <script>
 export default {
-  props: ['messages']
+  name: 'Title',
+  data () {
+    return {
+      title: 'Welcome to Product builder'
+    }
+  }
 }
 </script>
 
