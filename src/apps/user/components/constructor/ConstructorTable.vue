@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    <p v-if="inputValue">{{inputValue}}</p>
+    <p v-if="clicks">{{clicks}}</p>
     <v-data-table
             :items="layers"
             class="elevation-1"
@@ -10,31 +12,38 @@
       <template slot="items" slot-scope="props">
         <td class="text-xs-center">
           <v-select
-            :items="layersList"
-            item-text="label"
-            return-object
-            style="width: 100%"
-            v-model="props.item"
-            @change="changeLayerType(props.item)"
+                  :items="layersList"
+                  item-text="label"
+                  return-object
+                  style="width: 100%"
+                  v-model="props.item"
+                  @change="changeLayerType(props.item)"
           ></v-select>
 
         </td>
         <td class="text-xs-center">
           <v-text-field
-            type="number"
-            style="width: 50%; margin: 0 auto"
-            v-model="props.item.height"
+                  type="number"
+                  style="width: 50%; margin: 0 auto"
+                  v-model="props.item.height"
           >
           </v-text-field>
         </td>
         <td class="text-xs-center">
           <v-icon color="error" @click="deleteLayer(props.item)">close</v-icon>
         </td>
+        <td>
+
+        </td>
       </template>
     </v-data-table>
+  </div>
+
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'ConstructorTable',
   data () {
@@ -80,6 +89,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['clicks', 'inputValue']),
     layers () {
       return this.$store.getters.getLayers
     }
